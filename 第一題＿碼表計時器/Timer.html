@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>碼表計時器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <div id="viewport" class="viewport">
+      <div id="pages" class="pages">
+        <!-- Page 1: 指針計時器 -->
+        <section class="page">
+          <div class="dial-wrap">
+            <canvas id="dial"></canvas>
+            <div id="readout" class="time-readout">00:00.00</div>
+          </div>
+        </section>
+        <!-- Page 2: 電子計時器 -->
+        <section class="page">
+          <div class="digital">
+            <div id="big" class="big">00:00.00</div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- TODO:[HTML-WritingPart Start] -->
+    <div class="dots">
+      <span id="dot0" class="dot active"></span>
+    </div>
+    <!-- TODO:[HTML-WritingPart End] -->
+
+    <div class="controls">
+      <button id="leftBtn" class="btn" disabled>重置</button>
+      <button id="rightBtn" class="btn btn-green">開始</button>
+    </div>
+
+    <div id="laps" class="laps"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div id="filter">
+      <h3>條件篩選</h3>
+      <input placeholder="最大金額" id="max_price">
+      <input placeholder="最小金額" id="min_price">
+
+      <select id="gender">
+        <option value="All">All</option>
+        <option value="Male">男裝</option>
+        <option value="Female">女裝</option>
+      </select>
+      <!-- TODO:[HTML-WritingPart Start] -->
+      <div>
+        <input type="checkbox"id="shirts">
+        <label for="shirts">上衣</label>
+      </div>
+      <div>
+        <input type="checkbox"id="pants">
+      </div>
+      <div>
+        <input type="checkbox"id="shoes">
+        <label for="shoes">鞋子</label>
+      </div>
+      <div>
+        <input type="checkbox"id="cap">
+      </div>
+      <button onclick="apply_filter(products)">篩選</button>
+    </div>
+
+    <div id="products">
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <!-- TODO:[HTML-WritingPart End] -->
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,161 @@
+:root {
+  --bg: #000;
+  --text: #fff;
+  --btn-dark: #2d2f33;
+  --btn-green: #0a3;
+  --btn-red: #a00;
+  --blue: #2f80ed; /* 分圈指針 */
+  --orange: #f2994a; /* 主秒針 */
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans TC", sans-serif;
+  display: grid;
+  place-items: center;
+}
+
+.app {
+  position: absolute;
+  top: 10px;
+  width: min(780px, 96vw);
+}
+
+/* 兩頁滑動容器 */
+.viewport {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.pages {
+  /* TODO:[CSS-WritingPart Start]--------------------- */
+
+  /* TODO:[CSS-WritingPart End]----------------------- */
+  transition: transform 0.35s ease;
+}
+.page {
+  min-width: 100%;
+}
+
+/* 模擬頁點 */
+.dots {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 8px 0 14px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: #8885;
+}
+.dot.active {
+  background: #fff;
+}
+
+/* ====== ANALOG (碼表) ====== */
+.dial-wrap {
+  position: relative;
+  aspect-ratio: 1/1;
+  width: 100%;
+}
+canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.time-readout {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translateX(-50%);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
+  font-size: clamp(22px, 4.8vw, 42px);
+}
+
+/* ====== DIGITAL (電子) ====== */
+.digital {
+  display: grid;
+  place-items: center;
+  min-height: min(72vh, 82vw);
+}
+.big {
+  font-size: min(18vw, 140px);
+  font-weight: 300;
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 控制按鈕 */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+.btn {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 24px;
+  box-shadow: inset 0 0 0 8px #1e2024, 0 10px 24px rgba(0, 0, 0, 0.35);
+  background: radial-gradient(circle at 35% 30%, #3a3d42, var(--btn-dark));
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn-green {
+  background: radial-gradient(circle at 35% 30%, #0c4, var(--btn-green));
+}
+.btn-red {
+  background: radial-gradient(circle at 35% 30%, #c22, var(--btn-red));
+}
+@media (max-width: 640px) {
+  .btn {
+    width: 110px;
+    height: 110px;
+    font-size: 20px;
+  }
+}
+
+/* 分圈清單 */
+.laps {
+  margin-top: 10px;
+  border-top: 1px solid #222;
+  padding-top: 6px;
+  font-variant-numeric: tabular-nums;
+  font-size: 22px;
+  max-height: 38vh;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+.lap {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 4px;
+  border-bottom: 1px solid #141414;
+}
+.lap-title {
+  color: #d6d6d6;
+}
+.good {
+  color: #2ecc71;
+}
+.bad {
+  color: #ff5a5a;
+}
