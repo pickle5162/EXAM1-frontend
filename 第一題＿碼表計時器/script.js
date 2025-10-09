@@ -187,10 +187,11 @@
     if (running) {
 			// 分圈
       // TODO:[JS-WritingPart A Start]-------------------------------
-      
-			
-			
-			
+      const nowTS=now();
+      const lapMs=accLap+(nowTS-lapStartTS);
+      pushLap(lapMs);
+      lapStartTS=nowTS;
+      accLap=0;
 			// TODO:[JS-WritingPart A End]---------------------------------
     } else {
       // 重置
