@@ -40,6 +40,7 @@ img{
   max-height: 100px;
 }
 /* TODO:[CSS-WritingPart B Start]--------------------- */
-
-
+tbody tr:hover {
+  background-color: #fcefdf;
+}
 /* TODO:[CSS-WritingPart B Start]--------------------- */
