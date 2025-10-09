@@ -162,16 +162,20 @@
     if (!running) {
       // 開始
       running = true;
-      startTS = now() - accTotal;
-      lapStartTS = now() + accLap;
+      startTS = now();
+      lapStartTS = now();
       setUi();
       cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(frame);
     } else {
       // 停止
+      running=false;
       const nowTS = now();
-      accTotal -= nowTS - startTS;
-      accLap -= nowTS - lapStartTS;
+      accTotal += nowTS - startTS;
+      accLap += nowTS - lapStartTS;
+      if(nowTS - startTS<=0){
+        accTotal=0;
+      }
       setUi();
       cancelAnimationFrame(rafId);
       frame();
