@@ -37,9 +37,31 @@ function apply_filter(products_to_filter){
   let result = [];
   for(let i = 0; i < products_to_filter.length; i++){
     // TODO:[JS-WritingPart Start]-------------------------------------
-    // let fit_price = ;
-    // let fit_gender = ;
-    // let fit_category = ;
+    let fit_price = true;
+    if(min_price&&max_price){
+      fit_price=products_to_filter[i].price>=min_price&&products_to_filter[i].price<=max_price;
+    }
+    else if(max_price){
+      fit_price=products_to_filter[i].price<=max_price;
+    }
+    else if(min_price){
+      fit_price=products_to_filter[i].price>=min_price;
+    }
+    let fit_gender = true;
+    if(gender==='男裝'){
+      fit_gender=products_to_filter[i].gender==='男裝'||products_to_filter[i].gender==='通用';
+    }
+    else if(gender==='女裝'){
+      fit_gender=products_to_filter[i].gender==='女裝'||products_to_filter[i].gender==='通用';
+    }
+    let fit_category = true;
+    if(category_cap||category_pants||category_shirts||category_shoes){
+      fit_category=(category_shirts&&products_to_filter[i].category==='上衣')||
+                   (category_pants&&products_to_filter[i].category==='褲/裙子')||
+                   (category_shoes&&products_to_filter[i].category==='鞋子')||
+                   (category_cap&&products_to_filter[i].category==='帽子');
+    }
+
     // TODO:[JS-WritingPart End]---------------------------------------
     if(fit_price && fit_gender && fit_category){
       result.push(products[i]);
