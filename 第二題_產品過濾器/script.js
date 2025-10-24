@@ -54,6 +54,9 @@ function apply_filter(products_to_filter){
     else if(gender==='女裝'){
       fit_gender=products_to_filter[i].gender==='女裝'||products_to_filter[i].gender==='通用';
     }
+    else{
+      fit_gender=true;
+    }
     let fit_category = true;
     if(category_cap||category_pants||category_shirts||category_shoes){
       fit_category=(category_shirts&&products_to_filter[i].category==='上衣')||
